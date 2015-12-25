@@ -1,0 +1,9 @@
+<publishData>
+  <publishProfile
+    publishUrl="https://rfxavier-001-site3.btempurl.com:8172/msdeploy.axd"
+    msdeploySite="rfxavier-001-site3"
+    destinationAppUrl="http://rfxavier-001-site3.btempurl.com/"
+    profileName="Default Settings"
+    publishMethod="MSDeploy"
+    userName="ifc\rfxavier-001" />
+</publishData>

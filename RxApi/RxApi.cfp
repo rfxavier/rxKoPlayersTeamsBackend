@@ -1,0 +1,100 @@
+﻿<cf:project defaultNamespace="RxApi" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" xmlns:cfx="http://www.softfluent.com/codefluent/modeler/2008/1" xmlns:cfom="http://www.softfluent.com/codefluent/producers.model/2005/1" xmlns:cfps="http://www.softfluent.com/codefluent/producers.sqlserver/2005/1" defaultKeyPropertyTypeName="long" maxParameterNameLength="62" defaultConcurrencyMode="None" persistencePropertyNameFormat="{1}" defaultMethodAllowDynamicSort="false" defaultProducerProductionFlags="Default, Overwrite, RemoveDates" defaultMethodDistinct="false" createDefaultMethodForms="true" createDefaultApplication="false" createDefaultHints="false" productionFlags="Default, Overwrite, RemoveDates">
+  <cf:import path="Default.Surface.cfp" />
+  <cf:entity name="Player" namespace="RxApi" categoryPath="/RxApi">
+    <cf:property name="pId" key="true" />
+    <cf:property name="pFirstName" />
+    <cf:property name="pLastName" />
+    <cf:property name="pCreatedDate" typeName="datetime" />
+    <cf:property name="pUpdatedDate" typeName="datetime" />
+    <cf:property name="oTeam" typeName="{0}.Team" relationPropertyName="oPlayers" />
+    <cf:property name="oGameEvents" typeName="{0}.GameEventCollection" relationPropertyName="oPlayer" />
+    <cf:instance>
+      <cf:instanceValue name="pId">1</cf:instanceValue>
+      <cf:instanceValue name="pFirstName">John</cf:instanceValue>
+      <cf:instanceValue name="pLastName">Doe</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">08/12/2015 15:20:17</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">09/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="oTeam">1</cf:instanceValue>
+    </cf:instance>
+    <cf:instance sortOrder="1">
+      <cf:instanceValue name="pId">2</cf:instanceValue>
+      <cf:instanceValue name="pFirstName">Mary</cf:instanceValue>
+      <cf:instanceValue name="pLastName">Jane</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">15/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">16/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="oTeam">1</cf:instanceValue>
+    </cf:instance>
+    <cf:instance sortOrder="2">
+      <cf:instanceValue name="pId">3</cf:instanceValue>
+      <cf:instanceValue name="pFirstName">Lucas</cf:instanceValue>
+      <cf:instanceValue name="pLastName">Pratto</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">07/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">11/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="oTeam">2</cf:instanceValue>
+    </cf:instance>
+    <cf:instance sortOrder="3">
+      <cf:instanceValue name="pId">4</cf:instanceValue>
+      <cf:instanceValue name="pFirstName">Fabio</cf:instanceValue>
+      <cf:instanceValue name="pLastName">Jonas</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">10/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">12/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="oTeam">2</cf:instanceValue>
+    </cf:instance>
+    <cf:rule typeName="OnBeforeSave" />
+  </cf:entity>
+  <cf:entity name="Team" namespace="RxApi" categoryPath="/RxApi">
+    <cf:property name="pId" key="true" />
+    <cf:property name="pName" entityDisplay="true" />
+    <cf:property name="pCreatedDate" typeName="datetime" />
+    <cf:property name="pUpdatedDate" typeName="datetime" />
+    <cf:property name="oPlayers" typeName="{0}.PlayerCollection" relationPropertyName="oTeam" />
+    <cf:property name="oGamesAtHome" typeName="{0}.GameCollection" relationPropertyName="oHomeTeam" />
+    <cf:property name="oGamesOnTheRoad" typeName="{0}.GameCollection" relationPropertyName="oAwayTeam" />
+    <cf:instance>
+      <cf:instanceValue name="pId">1</cf:instanceValue>
+      <cf:instanceValue name="pName">Dodgers</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">14/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">08/12/2015 00:00:00</cf:instanceValue>
+    </cf:instance>
+    <cf:instance sortOrder="1">
+      <cf:instanceValue name="pId">2</cf:instanceValue>
+      <cf:instanceValue name="pName">Galo</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">09/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">09/12/2015 00:00:00</cf:instanceValue>
+    </cf:instance>
+    <cf:rule typeName="OnBeforeSave" />
+    <cf:rule typeName="OnBeforeDelete" />
+  </cf:entity>
+  <cf:entity name="Game" namespace="RxApi" categoryPath="/RxApi">
+    <cf:property name="pId" key="true" />
+    <cf:property name="pStartTime" typeName="datetime" />
+    <cf:property name="pCreatedDate" typeName="datetime" />
+    <cf:property name="pUpdatedDate" typeName="datetime" />
+    <cf:property name="oHomeTeam" typeName="{0}.Team" relationPropertyName="oGamesAtHome" />
+    <cf:property name="oAwayTeam" typeName="{0}.Team" relationPropertyName="oGamesOnTheRoad" />
+    <cf:property name="oGameEvents" typeName="{0}.GameEventCollection" relationPropertyName="oGame" />
+    <cf:instance>
+      <cf:instanceValue name="pId">1</cf:instanceValue>
+      <cf:instanceValue name="pStartTime">10/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pCreatedDate">11/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="pUpdatedDate">11/12/2015 00:00:00</cf:instanceValue>
+      <cf:instanceValue name="oHomeTeam">1</cf:instanceValue>
+      <cf:instanceValue name="oAwayTeam">2</cf:instanceValue>
+    </cf:instance>
+  </cf:entity>
+  <cf:entity name="GameEvent" namespace="RxApi" categoryPath="/RxApi">
+    <cf:property name="pId" key="true" />
+    <cf:property name="pPointValue" typeName="int" />
+    <cf:property name="oGame" typeName="{0}.Game" relationPropertyName="oGameEvents" />
+    <cf:property name="oPlayer" typeName="{0}.Player" relationPropertyName="oGameEvents" />
+    <cf:property name="pCreatedDate" typeName="datetime" />
+    <cf:property name="pUpdatedDate" typeName="datetime" />
+  </cf:entity>
+  <cf:producer name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom">
+    <cf:configuration compileWithVisualStudio="true" compile="false" codeDomProviderTypeName="VisualBasic" targetDirectory="..\RxApiBom\Classes" cfx:targetProjectLayout="Update" cfx:targetProject="..\RxApiBom\RxApiBom.vbproj">
+    </cf:configuration>
+  </cf:producer>
+  <cf:producer name="SQL Server" typeName="CodeFluent.Producers.SqlServer.SqlServerProducer, CodeFluent.Producers.SqlServer">
+    <cf:configuration produceViews="true" targetDirectory="..\RxApiBom\Persistence" connectionString="Server=GIOVANA-LAPTOP\SQLEXPRESS;Database=RxApi;Integrated Security=true;Application Name=RxApi;Password=manager;User ID=RenatoFX" cfx:targetProjectLayout="Update, DontRemove" cfx:targetProject="..\RxApiBom\RxApiBom.vbproj" targetVersion="Sql2014" />
+  </cf:producer>
+</cf:project>
