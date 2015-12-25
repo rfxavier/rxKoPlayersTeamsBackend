@@ -187,3 +187,17 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/RxApiBom/Persistence
+/RxApiBom/Classes/Web
+/RxApi/Default.Surface.cfp
+/RxApi/RxApi.build.xml
+/RxApiBom/Classes/Game.vb
+/RxApiBom/Classes/GameCollection.vb
+/RxApiBom/Classes/GameEvent.vb
+/RxApiBom/Classes/GameEventCollection.vb
+/RxApiBom/Classes/Player.vb
+/RxApiBom/Classes/PlayerCollection.vb
+/RxApiBom/Classes/RxApi.ResX
+/RxApiBom/Classes/Team.vb
+/RxApiBom/Classes/TeamCollection.vb
+/RxApiBom/Classes/_cf_rt.vb
