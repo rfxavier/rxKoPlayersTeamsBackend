@@ -1,8 +1,18 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-	</PropertyGroup>
-	<ItemGroup>
-		<RootModelPart Include="RxApi.cfp" />
-	</ItemGroup>
-	<Import Project="$(MSBuildExtensionsPath)\SoftFluent\CodeFluent\2.0\CodeFluent.targets" />
+  <PropertyGroup>
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|.NET' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|.NET' " />
+  <ItemGroup>
+    <RootModelPart Include="RxApi.cfp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SoftFluent\CodeFluent\2.0\CodeFluent.targets" />
 </Project>
